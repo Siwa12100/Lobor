@@ -2,3 +2,4 @@ name: Lobor
 version: '${version}'
 main: dev.siwa.lobor.Lobor
 api-version: '1.20'
+
