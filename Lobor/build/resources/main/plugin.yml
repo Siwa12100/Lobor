@@ -1,0 +1,11 @@
+name: Lobor
+version: '${version}'
+main: dev.siwa.lobor.Lobor
+api-version: '1.20'
+authors: [Siwa]
+description: future description de Lobor....
+
+commands:
+  lobor:
+    description: future description...
+    permission: lobor.use
