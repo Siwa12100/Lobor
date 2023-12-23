@@ -17,7 +17,7 @@ public class CommandesDebugManager implements CommandExecutor {
             return  false;
         }
 
-        afficheurDebug.afficherMessage((Player)sender, "Passage dans le debug manager et args.length > 1");
+        AfficheurDebug.afficherMessage((Player)sender, "Passage dans le debug manager et args.length > 1");
 
         Player p = (Player) sender;
         //MontureCheval monture = null;
@@ -33,7 +33,7 @@ public class CommandesDebugManager implements CommandExecutor {
             case "supprimerCheval" :
                 // afficheurDebug.afficherMessage((Player)sender, "debut de la suppresion du cheval ");
                 if (this.monture != null) {
-                    this.monture.supprimerCheval();
+                    this.monture.supprimer();
                     // afficheurDebug.afficherMessage((Player)sender, "Cheval supprimé ! ");
                 }
                 this.monture = null;

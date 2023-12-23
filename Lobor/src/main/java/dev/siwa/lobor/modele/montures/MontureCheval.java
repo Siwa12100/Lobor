@@ -18,7 +18,7 @@ public class MontureCheval extends Monture {
     protected Horse cheval;
 
     public MontureCheval(Player nvProprio) {
-        this.proprietaire = nvProprio;
+        super(nvProprio);
         this.invoquerCheval();
         preparerCheval();
     }
@@ -33,13 +33,14 @@ public class MontureCheval extends Monture {
         this.cheval = newCheval(this.proprietaire.getLocation(), this.proprietaire.getWorld());
     }
 
-    public void supprimerCheval() {
+    public void supprimer() {
         this.cheval.remove();
     }
     @Override
     public void immobiliser() {
 
         this.cheval.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, Integer.MAX_VALUE, 255, false, false));
+        this.mobile = false;
     }
 
     @Override
@@ -49,6 +50,7 @@ public class MontureCheval extends Monture {
         if (this.cheval.hasPotionEffect(effetLenteur)) {
             this.cheval.removePotionEffect(effetLenteur);
         }
+        this.mobile = true;
     }
 
     public void setVitesseCheval(double nouvelleVitesse) {

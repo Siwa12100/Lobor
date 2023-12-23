@@ -16,7 +16,7 @@ public class CommandesManager implements CommandExecutor {
 
     public CommandesManager(boolean modeDebug) {
         this.modeDebug = modeDebug;
-        afficheurDebug.activer();
+        AfficheurDebug.activer();
 
         if (isModeDebug()) {
             this.debugManager = new CommandesDebugManager();
@@ -32,7 +32,7 @@ public class CommandesManager implements CommandExecutor {
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
 
-        afficheurDebug.afficherMessage((Player) sender, "Passage dans le onCommand du manager principal de commandes");
+        AfficheurDebug.afficherMessage((Player) sender, "Passage dans le onCommand du manager principal de commandes");
         if (args.length != 0) {
             if (args[0].equals("-d")) {
                 if (isModeDebug()) {

@@ -18,10 +18,12 @@ public abstract class Monture {
     public void setProprietaire(Player p) {
         this.proprietaire = p;
     }
+    public Player getProprietaire() {
+        return this.proprietaire;
+    }
 
-    // empêcher la monture d'avancer
     public abstract void immobiliser();
-    // permettre à la monture d'avancer
+    public abstract void supprimer();
     public abstract void rendreMobile();
     public abstract void faireMonterJoueur();
 
