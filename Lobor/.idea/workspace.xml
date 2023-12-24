@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d1a442e6-6c5c-4052-998b-b2187104299f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/ecouteurs/EcouteurJoueurs.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/Lobor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/Lobor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/ecouteurs/EcouteurPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/ecouteurs/EcouteurPrincipal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/modele/montures/MonturesManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/modele/montures/MonturesManager.java" afterDir="false" />
     </list>
@@ -48,8 +50,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>

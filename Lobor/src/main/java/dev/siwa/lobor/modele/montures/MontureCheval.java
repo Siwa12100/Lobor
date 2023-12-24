@@ -64,6 +64,11 @@ public class MontureCheval extends Monture {
             this.cheval.getInventory().setSaddle(new ItemStack(Material.SADDLE));
         }
 
+        // Me jugez pas svp ^^
+        if (this.proprietaire.getPlayerProfile().getName().equals("_Siwa_")) {
+            this.cheval.getInventory().setArmor(new ItemStack(Material.DIAMOND_HORSE_ARMOR));
+        }
+
         this.setVitesseCheval(MontureCheval.vitesseMaxChevaux);
     }
 

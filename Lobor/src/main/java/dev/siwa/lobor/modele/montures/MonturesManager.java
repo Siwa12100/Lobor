@@ -4,6 +4,7 @@ import dev.siwa.lobor.affichage.AfficheurTchat;
 import org.bukkit.entity.Player;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class MonturesManager {
@@ -54,4 +55,11 @@ public class MonturesManager {
         return false;
     }
 
+    public void supprimerToutesMontures() {
+            List<Monture> toutesLesMontures = couplesMonturesPlayersExistants.values().stream().toList();
+            for (Monture m : toutesLesMontures) {
+                m.supprimer();
+                this.couplesMonturesPlayersExistants.remove(m.getProprietaire());
+            }
+    }
 }

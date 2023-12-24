@@ -3,6 +3,7 @@ package dev.siwa.lobor.ecouteurs;
 import dev.siwa.lobor.affichage.AfficheurDebug;
 import dev.siwa.lobor.modele.boutons.BoutonManagerSelleV1;
 import dev.siwa.lobor.modele.boutons.IBoutonManager;
+import dev.siwa.lobor.modele.invocateurs.IInvocateur;
 import dev.siwa.lobor.modele.invocateurs.InvocateurClassique;
 import dev.siwa.lobor.modele.montures.MonturesManager;
 import net.kyori.adventure.title.Title;
@@ -25,13 +26,13 @@ public class EcouteurPrincipal implements Listener {
 
     protected static int delaisEntreClicksObligatoire = 1;
     protected MonturesManager manager;
-    protected InvocateurClassique invocateur;
+    protected IInvocateur invocateur;
 
     protected List<IBoutonManager> lBoutonsManagers;
 
     protected Timestamp dernierClickDroit;
 
-    public EcouteurPrincipal(MonturesManager manager, InvocateurClassique invocateur, List<IBoutonManager> lBoutonsManagers) {
+    public EcouteurPrincipal(MonturesManager manager, IInvocateur invocateur, List<IBoutonManager> lBoutonsManagers) {
         this.manager = manager;
         this.invocateur = invocateur;
         this.dernierClickDroit = null;
