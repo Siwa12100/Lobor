@@ -21,23 +21,23 @@ public class MonturesManager {
 
     public boolean creerMontureCheval(Player p) {
         if (this.couplesMonturesPlayersExistants.containsKey(p)) {
-            AfficheurTchat.afficherMessage(p, " vous avez deja une monture.");
+            //AfficheurTchat.afficherMessage(p, " vous avez deja une monture.");
             return false;
         } else {
             MontureCheval nvMonture = new MontureCheval(p);
             this.couplesMonturesPlayersExistants.put(p, nvMonture);
-            AfficheurTchat.afficherMessage(p, " monture invoquee !");
+            //AfficheurTchat.afficherMessage(p, " monture invoquee !");
         }
         return true;
     }
 
     public void supprimerMontureCheval(Player p) {
         if (!this.couplesMonturesPlayersExistants.containsKey(p)) {
-            AfficheurTchat.afficherMessage(p, " vous n'avez pas de monture actuellement.");
+            //AfficheurTchat.afficherMessage(p, " vous n'avez pas de monture actuellement.");
         } else {
             this.couplesMonturesPlayersExistants.get(p).supprimer();
             this.couplesMonturesPlayersExistants.remove(p);
-            AfficheurTchat.afficherMessage(p, " votre monture a bien disparu.");
+            //AfficheurTchat.afficherMessage(p, " votre monture a bien disparu.");
         }
     }
 

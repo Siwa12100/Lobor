@@ -5,6 +5,7 @@ import dev.siwa.lobor.modele.boutons.BoutonManagerSelleV1;
 import dev.siwa.lobor.modele.boutons.IBoutonManager;
 import dev.siwa.lobor.modele.invocateurs.InvocateurClassique;
 import dev.siwa.lobor.modele.montures.MonturesManager;
+import net.kyori.adventure.title.Title;
 import org.bukkit.entity.Horse;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -15,6 +16,7 @@ import org.bukkit.event.vehicle.VehicleEnterEvent;
 import org.bukkit.event.vehicle.VehicleExitEvent;
 import org.bukkit.inventory.ItemStack;
 
+import java.sql.Time;
 import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.List;
@@ -42,7 +44,7 @@ public class EcouteurPrincipal implements Listener {
             Player joueur = (Player) event.getEntered();
             if (manager.possedeCheval(joueur)) {
                 manager.getMonture(joueur).rendreMobile();
-                AfficheurDebug.afficherMessage(joueur, " vous gripper sur votre monture, levee du frein a main !");
+                //AfficheurDebug.afficherMessage(joueur, " vous gripper sur votre monture, levee du frein a main !");
             }
 
         }
@@ -54,7 +56,7 @@ public class EcouteurPrincipal implements Listener {
             Player joueur = (Player) event.getExited();
             if (manager.possedeCheval(joueur)) {
                 manager.getMonture(joueur).immobiliser();
-                AfficheurDebug.afficherMessage(joueur, "Vous descendez de la monture, frein a main active !");
+                //AfficheurDebug.afficherMessage(joueur, "Vous descendez de la monture, frein a main active !");
             }
         }
     }
@@ -62,6 +64,7 @@ public class EcouteurPrincipal implements Listener {
     @EventHandler
     public void onInteract(PlayerInteractEvent event) {
 
+        //AfficheurDebug.afficherMessage("Entree dans OnInteract, action : " + event.getAction());
         if (event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK) {
             Player joueur = event.getPlayer();
             ItemStack itemCourant = event.getItem();
@@ -82,10 +85,15 @@ public class EcouteurPrincipal implements Listener {
         Timestamp tempsActuel = Timestamp.from(Instant.now());
 
         if (this.dernierClickDroit == null) {
+            this.dernierClickDroit = tempsActuel;
             return true;
         }
+        int tempsEntreClicksDroits = this.differenceSecondes(this.dernierClickDroit, tempsActuel);
 
-        int tempsEntreClicksDroits = tempsActuel.getSeconds() - this.dernierClickDroit.getSeconds();
+//        AfficheurDebug.afficherMessage("Dernier click il y a : " + this.dernierClickDroit.getSeconds());
+//        AfficheurDebug.afficherMessage("Nouveau click il y a : " + tempsActuel.getSeconds());
+//        AfficheurDebug.afficherMessage("Intervalle en secondes " + tempsEntreClicksDroits);
+
         if (tempsEntreClicksDroits < EcouteurPrincipal.delaisEntreClicksObligatoire) {
             // On envoie potentiellement un msg à l'utilisateur...
             //...
@@ -93,7 +101,13 @@ public class EcouteurPrincipal implements Listener {
             this.dernierClickDroit = dernierClickDroit;
             return false;
         }
+        this.dernierClickDroit = tempsActuel;
         return true;
+    }
+
+    protected int differenceSecondes(Timestamp ancienTemps, Timestamp nouveauTemps) {
+        long difference = nouveauTemps.getTime() - ancienTemps.getTime();
+        return (int) (difference / 1000);
     }
 
     @EventHandler
