@@ -1,4 +1,4 @@
-package dev.siwa.lobor.commandes.debug;
+package dev.siwa.lobor.affichage;
 
 import org.bukkit.entity.Player;
 

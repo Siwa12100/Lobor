@@ -1,11 +1,14 @@
 package dev.siwa.lobor.commandes.debug;
 
+import dev.siwa.lobor.modele.boutons.BoutonSelle;
 import dev.siwa.lobor.modele.montures.MontureCheval;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
+
+import dev.siwa.lobor.affichage.AfficheurDebug;
 
 public class CommandesDebugManager implements CommandExecutor {
 
@@ -14,7 +17,7 @@ public class CommandesDebugManager implements CommandExecutor {
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
 
         if (args.length <= 1) {
-            return  false;
+            return false;
         }
 
         AfficheurDebug.afficherMessage((Player)sender, "Passage dans le debug manager et args.length > 1");
@@ -61,6 +64,24 @@ public class CommandesDebugManager implements CommandExecutor {
                     monture.faireMonterJoueur();
                     // afficheurDebug.afficherMessage((Player)sender, "joueur sur le cheval !");
                 }
+
+            case "getBoutonSelle" :
+                AfficheurDebug.afficherMessage(p, "Debut de la creation boutonSelle");
+                BoutonSelle.getBoutonSelle(p);
+
+                AfficheurDebug.afficherMessage(p, "Fin de la creation BoutonSelle");
+                break;
+
+            case "removeBoutonSelle" :
+
+                AfficheurDebug.afficherMessage(p, "debut de la suppression BoutonSelle");
+                BoutonSelle.removeBoutonSelle(p);
+                AfficheurDebug.afficherMessage(p, "Fin de la suppression BoutonSelle");
+                break;
+
+            case "isSellePasLa" :
+                AfficheurDebug.afficherMessage(p, "La selle est " + BoutonSelle.isBoutonSelleAbsentVerif(p));
+                break;
 
             default:
                 return false;
