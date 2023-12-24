@@ -1,8 +1,11 @@
 package dev.siwa.lobor.modele.boutons;
 
 import dev.siwa.lobor.affichage.AfficheurDebug;
+import dev.siwa.lobor.modele.invocateurs.IInvocateur;
+import dev.siwa.lobor.modele.montures.MonturesManager;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -21,18 +24,14 @@ public class BoutonSelle {
     }
 
     public static void removeBoutonSelle(Player joueur) {
-        if (!isBoutonSelleAbsent(joueur)) {
-            for (ItemStack item : joueur.getInventory().getContents()) {
-                if (item != null && item.getType() == Material.SADDLE) {
+        ItemStack item = getItem(Material.SADDLE, ChatColor.GOLD + BoutonSelle.nomBouton);
+        ItemStack[] itemsInInventory = joueur.getInventory().getContents();
 
-                    ItemMeta donneesItem = item.getItemMeta();
-                    if (donneesItem != null && donneesItem.hasDisplayName()
-                            && Objects.equals(donneesItem.displayName(), BoutonSelle.nomBouton)) {
-                        joueur.getInventory().remove(item);
-
-                        AfficheurDebug.afficherMessage(joueur, "Passage apres le remove...");
-                    }
-                }
+        for (int i = 0; i < itemsInInventory.length; i++) {
+            ItemStack currentItem = itemsInInventory[i];
+            if (currentItem != null && currentItem.isSimilar(item)) {
+                joueur.getInventory().setItem(i, null);
+                return;
             }
         }
     }
@@ -45,24 +44,37 @@ public class BoutonSelle {
         return it;
     }
 
-    protected static boolean isBoutonSelleAbsent(Player joueur) {
+    public static boolean isBoutonSelleAbsent(Player joueur) {
 
-        for (ItemStack item : joueur.getInventory().getContents()) {
-            if (item != null && item.getType() == Material.SADDLE) {
+        ItemStack item = getItem(Material.SADDLE, ChatColor.GOLD + BoutonSelle.nomBouton);
+        ItemStack[] itemsInInventory = joueur.getInventory().getContents();
 
-                ItemMeta donneesItem = item.getItemMeta();
-                if (donneesItem != null && donneesItem.hasDisplayName()
-                        && Objects.requireNonNull(donneesItem.displayName()).toString().equals(BoutonSelle.nomBouton)) {
-                    return false;
-                }
+        for (ItemStack currentItem : itemsInInventory) {
+            if (currentItem != null && currentItem.isSimilar(item)) {
+                // Le joueur possède déjà cet item
+                return false;
             }
         }
 
+        // Le joueur ne possède pas cet item
         return true;
     }
 
-    public static boolean isBoutonSelleAbsentVerif(Player p) {
-        return !BoutonSelle.isBoutonSelleAbsent(p);
+    public static boolean isBontonSelle(ItemStack itemAtester) {
+        ItemStack itemSelle = getItem(Material.SADDLE, ChatColor.GOLD + BoutonSelle.nomBouton);
+        AfficheurDebug.afficherMessage("Passage dans la verif de si l'item est une selleBouton");
+        return itemSelle.isSimilar(itemAtester);
     }
 
+    public static void interagirAvecBouton(Player joueur, MonturesManager manager, IInvocateur invocateur) {
+
+        if (manager.possedeCheval(joueur)) {
+                invocateur.removeCheval(joueur);
+                AfficheurDebug.afficherMessage(joueur, "le mec avait bien un cheval, on lui supprime");
+            } else {
+                invocateur.getCheval(joueur);
+                AfficheurDebug.afficherMessage(joueur, "le mec avait pas de cheval, on lui en donne un...");
+            }
+
+    }
 }

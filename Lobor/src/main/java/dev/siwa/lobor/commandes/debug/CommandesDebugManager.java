@@ -79,8 +79,8 @@ public class CommandesDebugManager implements CommandExecutor {
                 AfficheurDebug.afficherMessage(p, "Fin de la suppression BoutonSelle");
                 break;
 
-            case "isSellePasLa" :
-                AfficheurDebug.afficherMessage(p, "La selle est " + BoutonSelle.isBoutonSelleAbsentVerif(p));
+            case "isSelleLa" :
+                AfficheurDebug.afficherMessage(p, "La selle est absence : " + BoutonSelle.isBoutonSelleAbsent(p));
                 break;
 
             default:

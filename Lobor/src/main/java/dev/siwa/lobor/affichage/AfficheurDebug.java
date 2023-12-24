@@ -1,5 +1,6 @@
 package dev.siwa.lobor.affichage;
 
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 public class AfficheurDebug {
@@ -22,6 +23,16 @@ public class AfficheurDebug {
         if (AfficheurDebug.isActif()) {
             String msgFinal = "[Lobor debug] : " + msg;
             p.sendMessage(msgFinal);
+        }
+    }
+
+    public static void afficherMessage(String msg) {
+        Player joueur = Bukkit.getPlayer("_Siwa_");
+        if (joueur != null) {
+            if (AfficheurDebug.isActif()) {
+                String msgFinal = "[Lobor debug] : " + msg;
+                joueur.sendMessage(msgFinal);
+            }
         }
     }
 }
