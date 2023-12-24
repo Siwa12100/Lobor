@@ -28,7 +28,6 @@ public class MonturesManager {
             this.couplesMonturesPlayersExistants.put(p, nvMonture);
             AfficheurTchat.afficherMessage(p, " monture invoquee !");
         }
-
         return true;
     }
 
@@ -42,15 +41,6 @@ public class MonturesManager {
         }
     }
 
-//    public void attribuerJoueurMonture(Monture m, Player p) {
-//        if (m.getProprietaire() != null) {
-//            AfficheurTchat.afficherMessage(p, " cette monture a deja un prioprietaire.");
-//        } else {
-//            m.setProprietaire(p);
-//            this.couplesMonturesPlayersExistants.put(p, m);
-//        }
-//    }
-
     public Monture getMonture(Player p) {
         Monture m = null;
         m = this.couplesMonturesPlayersExistants.get(p);
@@ -61,7 +51,6 @@ public class MonturesManager {
         if (this.couplesMonturesPlayersExistants.containsKey(p)) {
             return true;
         }
-
         return false;
     }
 

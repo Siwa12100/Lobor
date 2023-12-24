@@ -1,5 +1,6 @@
 package dev.siwa.lobor.commandes.debug;
 
+import dev.siwa.lobor.affichage.AfficheurTchat;
 import dev.siwa.lobor.modele.boutons.BoutonSelle;
 import dev.siwa.lobor.modele.montures.MontureCheval;
 import org.bukkit.command.Command;
@@ -19,68 +20,49 @@ public class CommandesDebugManager implements CommandExecutor {
         if (args.length <= 1) {
             return false;
         }
-
-        AfficheurDebug.afficherMessage((Player)sender, "Passage dans le debug manager et args.length > 1");
-
+        //AfficheurDebug.afficherMessage((Player)sender, "Passage dans le debug manager et args.length > 1");
         Player p = (Player) sender;
-        //MontureCheval monture = null;
 
         switch (args[1]) {
-
             case "creerCheval" :
-                // afficheurDebug.afficherMessage((Player)sender, "Passage dans le case creerCheval");
                 this.monture = new MontureCheval(p);
-                // afficheurDebug.afficherMessage((Player)sender, "Cheval créé ! ");
                 break;
 
             case "supprimerCheval" :
-                // afficheurDebug.afficherMessage((Player)sender, "debut de la suppresion du cheval ");
                 if (this.monture != null) {
                     this.monture.supprimer();
-                    // afficheurDebug.afficherMessage((Player)sender, "Cheval supprimé ! ");
                 }
                 this.monture = null;
                 break;
 
             case "immobiliserCheval" :
-                // afficheurDebug.afficherMessage((Player)sender, "debut de l'immobilisation du cheval ");
                 if (this.monture != null) {
                     this.monture.immobiliser();
-                    // afficheurDebug.afficherMessage((Player)sender, "Cheval immobilisé ! ");
                 }
                 break;
 
             case "rendreChevalMobile" :
-                // afficheurDebug.afficherMessage((Player)sender, "debut du rendre mobile cheval  ");
                 if (this.monture != null) {
                     this.monture.rendreMobile();
-                    // afficheurDebug.afficherMessage((Player)sender, "Cheval rendu mobile  ! ");
                 }
                 break;
 
             case "faireMonterCheval" :
                 if (this.monture != null) {
-                    // afficheurDebug.afficherMessage((Player)sender, "debut du faire monter cheval  ");
                     monture.faireMonterJoueur();
-                    // afficheurDebug.afficherMessage((Player)sender, "joueur sur le cheval !");
                 }
+                break;
 
             case "getBoutonSelle" :
-                AfficheurDebug.afficherMessage(p, "Debut de la creation boutonSelle");
                 BoutonSelle.getBoutonSelle(p);
-
-                AfficheurDebug.afficherMessage(p, "Fin de la creation BoutonSelle");
                 break;
 
             case "removeBoutonSelle" :
-
-                AfficheurDebug.afficherMessage(p, "debut de la suppression BoutonSelle");
                 BoutonSelle.removeBoutonSelle(p);
-                AfficheurDebug.afficherMessage(p, "Fin de la suppression BoutonSelle");
                 break;
 
             case "isSelleLa" :
-                AfficheurDebug.afficherMessage(p, "La selle est absence : " + BoutonSelle.isBoutonSelleAbsent(p));
+                AfficheurTchat.afficherMessage(p, "La selle est absence : " + BoutonSelle.isBoutonSelleAbsent(p));
                 break;
 
             default:

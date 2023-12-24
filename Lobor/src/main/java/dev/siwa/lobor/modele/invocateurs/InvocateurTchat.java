@@ -9,7 +9,6 @@ import org.jetbrains.annotations.NotNull;
 
 public class InvocateurTchat extends InvocateurClassique implements IInvocateur, CommandExecutor {
 
-
     public InvocateurTchat(MonturesManager manager) {
         super(manager);
     }
@@ -19,13 +18,10 @@ public class InvocateurTchat extends InvocateurClassique implements IInvocateur,
         if (!(args.length > 1)) {
             return false;
         }
-
         Player joueur = (Player) sender;
 
         if (args[0].equals("-i")) {
-
             switch(args[1]) {
-
                 case "getCheval" :
                     this.getCheval(joueur);
                     break;

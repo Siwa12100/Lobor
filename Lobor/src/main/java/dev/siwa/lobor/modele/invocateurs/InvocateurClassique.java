@@ -9,17 +9,18 @@ public class InvocateurClassique implements IInvocateur {
     public InvocateurClassique(MonturesManager manager) {
         this.manager = manager;
     }
+
     @Override
     public void getCheval(Player p) {
         if (p != null) {
-            boolean  verif =  this.manager.creerMontureCheval(p);
+            boolean verif =  this.manager.creerMontureCheval(p);
             if (verif) {
                 this.manager.getMonture(p).faireMonterJoueur();
             }
         }
     }
 
-      @Override
+    @Override
     public void removeCheval(Player p) {
         if (p != null) {
             this.manager.supprimerMontureCheval(p);

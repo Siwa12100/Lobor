@@ -26,9 +26,6 @@ public class CommandesManager implements CommandExecutor {
         } else {
             this.debugManager = null;
         }
-
-        //this.invocateurTchat = new InvocateurTchat(new MonturesManager(false));
-
     }
 
     public static CommandesManager newCommandesManager(boolean modeDebug, MonturesManager manager) {
@@ -43,7 +40,7 @@ public class CommandesManager implements CommandExecutor {
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
 
-        AfficheurDebug.afficherMessage((Player) sender, "Passage dans le onCommand du manager principal de commandes");
+        //AfficheurDebug.afficherMessage((Player) sender, "Passage dans le onCommand du manager principal de commandes");
         if (args.length != 0) {
             if (args[0].equals("-d")) {
                 if (isModeDebug()) {
@@ -58,7 +55,6 @@ public class CommandesManager implements CommandExecutor {
                 return this.invocateurTchat.onCommand(sender, command, label, args);
             }
         }
-
         return false;
     }
 }

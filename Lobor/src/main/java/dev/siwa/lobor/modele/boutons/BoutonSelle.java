@@ -19,7 +19,6 @@ public class BoutonSelle {
     public static void getBoutonSelle(Player joueur) {
         if (isBoutonSelleAbsent(joueur)) {
             joueur.getInventory().addItem(getItem(Material.SADDLE, ChatColor.GOLD + BoutonSelle.nomBouton));
-            AfficheurDebug.afficherMessage(joueur, " Item Selle bien get dans le if ...");
         }
     }
 
@@ -45,24 +44,19 @@ public class BoutonSelle {
     }
 
     public static boolean isBoutonSelleAbsent(Player joueur) {
-
         ItemStack item = getItem(Material.SADDLE, ChatColor.GOLD + BoutonSelle.nomBouton);
         ItemStack[] itemsInInventory = joueur.getInventory().getContents();
 
         for (ItemStack currentItem : itemsInInventory) {
             if (currentItem != null && currentItem.isSimilar(item)) {
-                // Le joueur possède déjà cet item
                 return false;
             }
         }
-
-        // Le joueur ne possède pas cet item
         return true;
     }
 
     public static boolean isBontonSelle(ItemStack itemAtester) {
         ItemStack itemSelle = getItem(Material.SADDLE, ChatColor.GOLD + BoutonSelle.nomBouton);
-        AfficheurDebug.afficherMessage("Passage dans la verif de si l'item est une selleBouton");
         return itemSelle.isSimilar(itemAtester);
     }
 
@@ -70,11 +64,8 @@ public class BoutonSelle {
 
         if (manager.possedeCheval(joueur)) {
                 invocateur.removeCheval(joueur);
-                AfficheurDebug.afficherMessage(joueur, "le mec avait bien un cheval, on lui supprime");
-            } else {
+        } else {
                 invocateur.getCheval(joueur);
-                AfficheurDebug.afficherMessage(joueur, "le mec avait pas de cheval, on lui en donne un...");
-            }
-
+        }
     }
 }
