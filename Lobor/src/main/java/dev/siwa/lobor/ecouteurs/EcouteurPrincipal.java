@@ -1,7 +1,8 @@
 package dev.siwa.lobor.ecouteurs;
 
 import dev.siwa.lobor.affichage.AfficheurDebug;
-import dev.siwa.lobor.modele.boutons.BoutonSelle;
+import dev.siwa.lobor.modele.boutons.BoutonManagerSelleV1;
+import dev.siwa.lobor.modele.boutons.IBoutonManager;
 import dev.siwa.lobor.modele.invocateurs.InvocateurClassique;
 import dev.siwa.lobor.modele.montures.MonturesManager;
 import org.bukkit.entity.Horse;
@@ -11,23 +12,28 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.vehicle.VehicleEnterEvent;
+import org.bukkit.event.vehicle.VehicleExitEvent;
 import org.bukkit.inventory.ItemStack;
 
-import java.net.http.WebSocket;
 import java.sql.Timestamp;
 import java.time.Instant;
+import java.util.List;
 
 public class EcouteurPrincipal implements Listener {
 
+    protected static int delaisEntreClicksObligatoire = 1;
     protected MonturesManager manager;
     protected InvocateurClassique invocateur;
 
+    protected List<IBoutonManager> lBoutonsManagers;
+
     protected Timestamp dernierClickDroit;
 
-    public EcouteurPrincipal(MonturesManager manager, InvocateurClassique invocateur) {
+    public EcouteurPrincipal(MonturesManager manager, InvocateurClassique invocateur, List<IBoutonManager> lBoutonsManagers) {
         this.manager = manager;
         this.invocateur = invocateur;
         this.dernierClickDroit = null;
+        this.lBoutonsManagers = lBoutonsManagers;
     }
 
     @EventHandler
@@ -55,42 +61,50 @@ public class EcouteurPrincipal implements Listener {
 
     @EventHandler
     public void onInteract(PlayerInteractEvent event) {
-        AfficheurDebug.afficherMessage("entree dans un OnInteract action : " + event.getAction());
-        // On commence par regarder si le gars fait bien un click droit
+
         if (event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK) {
             Player joueur = event.getPlayer();
-            AfficheurDebug.afficherMessage(joueur, "Il s'agit bien d'un click droit : " + event.getAction() );
-
-
-
-            AfficheurDebug.afficherMessage("Nouveau dernierClick droit : " + dernierClickDroit);
-
             ItemStack itemCourant = event.getItem();
 
-            // Ensuite on regarde si l'item courant est bien une selle custom souhaitée
-            if (BoutonSelle.isBontonSelle(itemCourant)) {
-                AfficheurDebug.afficherMessage("Le mec a bien une selle custom dans l'inventaire");
-                // Si oui, on interagie avec le bouton
+            for (IBoutonManager bouton : this.lBoutonsManagers) {
+                if (bouton.isBouton(itemCourant)) {
 
-                int differenceNecessaire = 1;
-                Timestamp nouveauClickDroit = Timestamp.from(Instant.now());
-                if (this.dernierClickDroit != null) {
-                    int differenceSecondes = nouveauClickDroit.getSeconds() - this.dernierClickDroit.getSeconds();
-                    if (differenceSecondes < differenceNecessaire) {
-                        AfficheurDebug.afficherMessage("le difference de scondes trop faible " + differenceSecondes);
-                        this.dernierClickDroit = nouveauClickDroit;
-                        return;
+                    if (isDelaisSuffisant()) {
+                        bouton.interagirAvecBouton(joueur, this.manager, this.invocateur);
                     }
+                    return;
                 }
-
-                this.dernierClickDroit = nouveauClickDroit;
-
-                BoutonSelle.interagirAvecBouton(joueur, this.manager, this.invocateur);
             }
         }
     }
 
+    protected boolean isDelaisSuffisant() {
+        Timestamp tempsActuel = Timestamp.from(Instant.now());
 
+        if (this.dernierClickDroit == null) {
+            return true;
+        }
 
+        int tempsEntreClicksDroits = tempsActuel.getSeconds() - this.dernierClickDroit.getSeconds();
+        if (tempsEntreClicksDroits < EcouteurPrincipal.delaisEntreClicksObligatoire) {
+            // On envoie potentiellement un msg à l'utilisateur...
+            //...
+            // On update la date du dernier click droit :
+            this.dernierClickDroit = dernierClickDroit;
+            return false;
+        }
+        return true;
+    }
 
+    @EventHandler
+    public void onVehiculeExit(VehicleExitEvent event) {
+        if (event.getExited() instanceof Player) {
+            Player joueur = (Player) event.getExited();
+            for (IBoutonManager b : this.lBoutonsManagers) {
+                if (b instanceof BoutonManagerSelleV1) {
+                    ((BoutonManagerSelleV1) b).supprimerPotentielCheval(joueur, this.manager);
+                }
+            }
+        }
+    }
 }

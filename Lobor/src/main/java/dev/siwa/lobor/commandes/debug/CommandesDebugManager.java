@@ -1,7 +1,7 @@
 package dev.siwa.lobor.commandes.debug;
 
 import dev.siwa.lobor.affichage.AfficheurTchat;
-import dev.siwa.lobor.modele.boutons.BoutonSelle;
+import dev.siwa.lobor.modele.boutons.BoutonManagerSelleV1;
 import dev.siwa.lobor.modele.montures.MontureCheval;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -9,11 +9,10 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
-import dev.siwa.lobor.affichage.AfficheurDebug;
-
 public class CommandesDebugManager implements CommandExecutor {
 
     private MontureCheval monture;
+    private BoutonManagerSelleV1 selleManagerv1;
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
 
@@ -22,6 +21,7 @@ public class CommandesDebugManager implements CommandExecutor {
         }
         //AfficheurDebug.afficherMessage((Player)sender, "Passage dans le debug manager et args.length > 1");
         Player p = (Player) sender;
+        this.selleManagerv1 = BoutonManagerSelleV1.newBoutonManagerV1();
 
         switch (args[1]) {
             case "creerCheval" :
@@ -54,15 +54,11 @@ public class CommandesDebugManager implements CommandExecutor {
                 break;
 
             case "getBoutonSelle" :
-                BoutonSelle.getBoutonSelle(p);
+                this.selleManagerv1.getBouton(p);
                 break;
 
             case "removeBoutonSelle" :
-                BoutonSelle.removeBoutonSelle(p);
-                break;
-
-            case "isSelleLa" :
-                AfficheurTchat.afficherMessage(p, "La selle est absence : " + BoutonSelle.isBoutonSelleAbsent(p));
+                this.selleManagerv1.removeBouton(p);
                 break;
 
             default:

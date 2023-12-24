@@ -5,16 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d1a442e6-6c5c-4052-998b-b2187104299f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/modele/boutons/IBoutonManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/commandes/CommandesManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/commandes/CommandesManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/Lobor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/Lobor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/commandes/debug/CommandesDebugManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/commandes/debug/CommandesDebugManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/modele/boutons/BoutonSelle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/modele/boutons/BoutonSelle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/modele/invocateurs/IInvocateur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/modele/invocateurs/IInvocateur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/modele/invocateurs/InvocateurClassique.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/modele/invocateurs/InvocateurClassique.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/modele/invocateurs/InvocateurTchat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/modele/invocateurs/InvocateurTchat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/modele/montures/MontureCheval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/modele/montures/MontureCheval.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/modele/montures/MonturesManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/modele/montures/MonturesManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/ecouteurs/EcouteurPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/ecouteurs/EcouteurPrincipal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/modele/boutons/BoutonSelle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/modele/boutons/BoutonManagerSelleV1.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,8 +50,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
