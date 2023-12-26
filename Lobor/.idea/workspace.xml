@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d1a442e6-6c5c-4052-998b-b2187104299f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/ecouteurs/EcouteurJoueurs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/Lobor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/Lobor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/ecouteurs/EcouteurPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/ecouteurs/EcouteurPrincipal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/modele/montures/MonturesManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/modele/montures/MonturesManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,13 +65,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "configImplementation"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\jeanm\OneDrive\Documents\Dev\Minecraft\Lobor\Lobor\src\main\java\dev\siwa\lobor" />
@@ -105,7 +100,7 @@
       <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
-      <ForceTestExec>false</ForceTestExec>
+      <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
   </component>
