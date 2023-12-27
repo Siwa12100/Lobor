@@ -2,7 +2,6 @@ package dev.siwa.lobor.modele.boutons;
 
 import dev.siwa.lobor.modele.invocateurs.IInvocateur;
 import dev.siwa.lobor.modele.montures.Monture;
-import dev.siwa.lobor.modele.montures.MontureCheval;
 import dev.siwa.lobor.modele.montures.MonturesManager;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -13,31 +12,34 @@ import org.bukkit.inventory.meta.ItemMeta;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BoutonManagerSelleV1 implements IBoutonManager{
+public class BoutonSelleChevalV1 implements IBouton {
 
     protected static String nomBouton = "monture";
-    protected static BoutonManagerSelleV1 instance;
+    protected static BoutonSelleChevalV1 instance;
     protected List<Monture> monturesEnCoursUtilisation;
 
-    protected BoutonManagerSelleV1() {
+    protected final TypesBouton typeBouton;
+
+    protected BoutonSelleChevalV1() {
         this.monturesEnCoursUtilisation = new ArrayList<>();
+        this.typeBouton = TypesBouton.selleChevalV1;
     }
 
-    public static BoutonManagerSelleV1 newBoutonManagerV1() {
-        if (BoutonManagerSelleV1.instance == null) {
-            BoutonManagerSelleV1.instance = new BoutonManagerSelleV1();
+    public static BoutonSelleChevalV1 newBoutonManagerV1() {
+        if (BoutonSelleChevalV1.instance == null) {
+            BoutonSelleChevalV1.instance = new BoutonSelleChevalV1();
         }
-        return BoutonManagerSelleV1.instance;
+        return BoutonSelleChevalV1.instance;
     }
 
     public void getBouton(Player joueur) {
         if (isBoutonSelleAbsent(joueur)) {
-            joueur.getInventory().addItem(getItem(Material.SADDLE, ChatColor.GOLD + BoutonManagerSelleV1.nomBouton));
+            joueur.getInventory().addItem(getItem(Material.SADDLE, ChatColor.GOLD + BoutonSelleChevalV1.nomBouton));
         }
     }
 
     public void removeBouton(Player joueur) {
-        ItemStack item = getItem(Material.SADDLE, ChatColor.GOLD + BoutonManagerSelleV1.nomBouton);
+        ItemStack item = getItem(Material.SADDLE, ChatColor.GOLD + BoutonSelleChevalV1.nomBouton);
         ItemStack[] itemsInInventory = joueur.getInventory().getContents();
 
         for (int i = 0; i < itemsInInventory.length; i++) {
@@ -58,7 +60,7 @@ public class BoutonManagerSelleV1 implements IBoutonManager{
     }
 
     protected static boolean isBoutonSelleAbsent(Player joueur) {
-        ItemStack item = getItem(Material.SADDLE, ChatColor.GOLD + BoutonManagerSelleV1.nomBouton);
+        ItemStack item = getItem(Material.SADDLE, ChatColor.GOLD + BoutonSelleChevalV1.nomBouton);
         ItemStack[] itemsInInventory = joueur.getInventory().getContents();
 
         for (ItemStack currentItem : itemsInInventory) {
@@ -70,7 +72,7 @@ public class BoutonManagerSelleV1 implements IBoutonManager{
     }
 
     public boolean isBouton(ItemStack itemCourant) {
-        ItemStack itemSelle = getItem(Material.SADDLE, ChatColor.GOLD + BoutonManagerSelleV1.nomBouton);
+        ItemStack itemSelle = getItem(Material.SADDLE, ChatColor.GOLD + BoutonSelleChevalV1.nomBouton);
         return itemSelle.isSimilar(itemCourant);
     }
 
@@ -89,5 +91,9 @@ public class BoutonManagerSelleV1 implements IBoutonManager{
                 manager.supprimerMontureCheval(joueur);
             }
         }
+    }
+
+    public TypesBouton getTypeBouton() {
+        return  this.typeBouton;
     }
 }

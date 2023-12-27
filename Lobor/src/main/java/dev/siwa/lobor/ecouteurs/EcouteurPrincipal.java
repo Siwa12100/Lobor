@@ -1,12 +1,10 @@
 package dev.siwa.lobor.ecouteurs;
 
-import dev.siwa.lobor.affichage.AfficheurDebug;
-import dev.siwa.lobor.modele.boutons.BoutonManagerSelleV1;
-import dev.siwa.lobor.modele.boutons.IBoutonManager;
+import dev.siwa.lobor.modele.boutons.BoutonSelleChevalV1;
+import dev.siwa.lobor.modele.boutons.IBouton;
+import dev.siwa.lobor.modele.boutons.TypesBouton;
 import dev.siwa.lobor.modele.invocateurs.IInvocateur;
-import dev.siwa.lobor.modele.invocateurs.InvocateurClassique;
 import dev.siwa.lobor.modele.montures.MonturesManager;
-import net.kyori.adventure.title.Title;
 import org.bukkit.entity.Horse;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -17,7 +15,6 @@ import org.bukkit.event.vehicle.VehicleEnterEvent;
 import org.bukkit.event.vehicle.VehicleExitEvent;
 import org.bukkit.inventory.ItemStack;
 
-import java.sql.Time;
 import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.List;
@@ -28,11 +25,11 @@ public class EcouteurPrincipal implements Listener {
     protected MonturesManager manager;
     protected IInvocateur invocateur;
 
-    protected List<IBoutonManager> lBoutonsManagers;
+    protected List<IBouton> lBoutonsManagers;
 
     protected Timestamp dernierClickDroit;
 
-    public EcouteurPrincipal(MonturesManager manager, IInvocateur invocateur, List<IBoutonManager> lBoutonsManagers) {
+    public EcouteurPrincipal(MonturesManager manager, IInvocateur invocateur, List<IBouton> lBoutonsManagers) {
         this.manager = manager;
         this.invocateur = invocateur;
         this.dernierClickDroit = null;
@@ -70,7 +67,7 @@ public class EcouteurPrincipal implements Listener {
             Player joueur = event.getPlayer();
             ItemStack itemCourant = event.getItem();
 
-            for (IBoutonManager bouton : this.lBoutonsManagers) {
+            for (IBouton bouton : this.lBoutonsManagers) {
                 if (bouton.isBouton(itemCourant)) {
 
                     if (isDelaisSuffisant()) {
@@ -115,9 +112,9 @@ public class EcouteurPrincipal implements Listener {
     public void onVehiculeExit(VehicleExitEvent event) {
         if (event.getExited() instanceof Player) {
             Player joueur = (Player) event.getExited();
-            for (IBoutonManager b : this.lBoutonsManagers) {
-                if (b instanceof BoutonManagerSelleV1) {
-                    ((BoutonManagerSelleV1) b).supprimerPotentielCheval(joueur, this.manager);
+            for (IBouton b : this.lBoutonsManagers) {
+                if (b.getTypeBouton() == TypesBouton.selleChevalV1) {
+                    ((BoutonSelleChevalV1) b).supprimerPotentielCheval(joueur, this.manager);
                 }
             }
         }

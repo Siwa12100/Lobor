@@ -5,9 +5,11 @@ import dev.siwa.lobor.modele.montures.MonturesManager;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-public interface IBoutonManager {
+public interface IBouton {
     void getBouton(Player joueur);
     void removeBouton(Player joueur);
     void interagirAvecBouton(Player joueur, MonturesManager manager, IInvocateur invocateur);
     boolean isBouton(ItemStack itemCourant);
+
+    TypesBouton getTypeBouton();
 }

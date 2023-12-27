@@ -27,3 +27,10 @@ Le manager doit donc :
 * Tenir un registre des montures instanciées et des joueurs auxquels elles sont associées
 * Supprimer des montures à la disparation du joueur
 * Gérer les différents invocateurs de montures présents sur le serveur
+  
+## Réflexion sur les options de configuration souhaitées
+
+Il serait intéressant de pouvoir définir si l'on active le plugin ou non de manière générale.
+Ensuite, il serait aussi intéressant de savoir dans quels mondes active t'on le plugin, et pour chaque monde, quel type de boutons on laisse à disposition des joueurs. 
+
+On pourrait aussi soit laisser le choix de spécifier pour chaque monde le type de bouton, soit, d'en mettre un par défaut qui s'applique sur tous les mondes sélectionnés. Et on pourrait aussi choisir si l'on applique le plugin sur l'ensemble des mondes ou non.

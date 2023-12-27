@@ -1,7 +1,6 @@
 package dev.siwa.lobor.ecouteurs;
 
-import dev.siwa.lobor.modele.boutons.IBoutonManager;
-import dev.siwa.lobor.modele.montures.Monture;
+import dev.siwa.lobor.modele.boutons.IBouton;
 import dev.siwa.lobor.modele.montures.MonturesManager;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -9,13 +8,11 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
-import java.net.http.WebSocket;
-
 public class EcouteurJoueurs implements Listener {
 
-    protected IBoutonManager boutonManager;
+    protected IBouton boutonManager;
     protected MonturesManager monturesManager;
-    public EcouteurJoueurs(IBoutonManager boutonManager, MonturesManager monturesManager) {
+    public EcouteurJoueurs(IBouton boutonManager, MonturesManager monturesManager) {
         this.boutonManager = boutonManager;
         this.monturesManager = monturesManager;
     }
