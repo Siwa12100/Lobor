@@ -1,8 +1,11 @@
 package dev.siwa.lobor.config;
 
 import dev.siwa.lobor.Lobor;
+import dev.siwa.lobor.affichage.AfficheurDebug;
 import dev.siwa.lobor.modele.boutons.TypesBouton;
 import org.bukkit.World;
+import org.bukkit.configuration.ConfigurationSection;
+import org.bukkit.configuration.file.FileConfiguration;
 
 import javax.lang.model.element.TypeElement;
 import java.util.HashMap;
@@ -11,11 +14,10 @@ import java.util.Map;
 
 public class LoborConfig {
 
-    protected Map<String, TypesBouton> associationMondeBouton;
-    protected boolean LoborActif;
-    protected boolean LoborActifSurTousLesMondes;
-    protected TypesBouton typeDeBoutonParDefaut;
-
+    public Map<String, TypesBouton> associationMondeBouton;
+    public boolean LoborActif;
+    public boolean LoborActifSurTousLesMondes;
+    public TypesBouton typeDeBoutonParDefaut;
     protected static LoborConfig instance;
 
     protected LoborConfig(boolean isLoborActif, boolean isLoborActifSurTousLesMondes, TypesBouton typeDeBoutonParDefaut) {
@@ -40,18 +42,41 @@ public class LoborConfig {
         this.LoborActifSurTousLesMondes = false;
     }
 
-    public static LoborConfig getInstance() {
-        LoborConfig temp = LoborConfig.instance;
-        if (temp == null) {
-            temp = new LoborConfig();
+    public static synchronized LoborConfig getInstance() {
+        if (instance == null) {
+            instance = new LoborConfig();
+            System.out.println("Passage dans la création d'une nouvelle instance");
         }
-        return  temp;
+
+        return instance;
     }
 
-    public static void chargerConfig(boolean isLoborActif, boolean isLoborActifSurTousLesMondes, TypesBouton typeDeBoutonParDefaut) {
-        if (LoborConfig.instance == null) {
-            LoborConfig.instance = new LoborConfig(isLoborActif, isLoborActifSurTousLesMondes, typeDeBoutonParDefaut);
+    public static void chargerConfig(FileConfiguration config) {
+
+        LoborConfig instance = LoborConfig.getInstance();
+
+        System.out.println("Passage dans le chargement de la config");
+
+        instance.LoborActif = config.getBoolean("active");
+
+        System.out.println(" Est actif : " + config.getBoolean("active"));
+
+        instance.LoborActifSurTousLesMondes = config.getBoolean("plugin_enable_worldwide");
+
+        System.out.println("config actif partout : " + config.getBoolean("plugin_enable_worldwide"));
+
+        instance.typeDeBoutonParDefaut = recupererTypeBoutonFromString(config.getString("default_button_type"));
+
+        ConfigurationSection worldsConfig = config.getConfigurationSection("worlds_configuration");
+        if (worldsConfig != null) {
+            for (String world : worldsConfig.getKeys(false)) {
+                TypesBouton bouton = recupererTypeBoutonFromString(worldsConfig.getString(world));
+                instance.ajouterMondeAGerer(world, bouton);
+
+                System.out.println("- Config chargement... : w : " + world + " bt : " + worldsConfig.getString(world));
+            }
         }
+
     }
 
     public boolean isLoborActif() {
@@ -67,7 +92,7 @@ public class LoborConfig {
     }
 
     public boolean isWorldPrisEnCharge(World w) {
-        return this.associationMondeBouton.containsKey(w);
+        return this.associationMondeBouton.containsKey(w.getName());
     }
 
     public void ajouterMondeAGerer(World w, TypesBouton b) {
@@ -84,20 +109,32 @@ public class LoborConfig {
 
     public void ajouterMondeAGerer(String w, TypesBouton b) {
         this.associationMondeBouton.put(w, b);
+        System.out.println("Lobor Config : Ajout du monde " + w + " avec bt : " + b );
+//        System.out.println(" Lobor config test de la map -> bt  : " + this.getTypeBoutonAssocie(w));
+        System.out.println(" Lobor config test de la map -> bt  : " + LoborConfig.getInstance().getTypeBoutonAssocie(w));
     }
 
     public TypesBouton getTypeBoutonAssocie(World w) {
         TypesBouton t = null;
+        t = this.associationMondeBouton.get(w.getName());
+        return t;
+    }
+
+    public TypesBouton getTypeBoutonAssocie(String w) {
+        TypesBouton t = null;
         t = this.associationMondeBouton.get(w);
         return t;
     }
+
+
 
     public String toString() {
         StringBuilder msgBuilder = new StringBuilder(
                 " Config de Lobor : \n" +
                 " ----------------- \n" +
                 " - Lobor actif : " + this.isLoborActif() + "\n" +
-                " - Bouton par défaut : " + this.getTypeDeBoutonParDefaut() + "\n" +
+                "- Actif sur tous les mondes : " + this.isLoborActifSurTousLesMondes() + "\n" +
+                //" - Bouton par défaut : " + this.getTypeDeBoutonParDefaut().toString() + "\n" +
                 " - Mondes pris en charge : " + "\n");
 
         for (Map.Entry<String, TypesBouton> e : this.associationMondeBouton.entrySet()) {
@@ -105,5 +142,17 @@ public class LoborConfig {
         }
 
         return msgBuilder.toString();
+    }
+
+    private static TypesBouton recupererTypeBoutonFromString(String type) {
+
+        switch (type) {
+
+            case "chevalV1" :
+                return TypesBouton.selleChevalV1;
+
+            default:
+                return TypesBouton.selleChevalV1;
+        }
     }
 }

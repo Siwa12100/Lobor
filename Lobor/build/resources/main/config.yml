@@ -1,0 +1,8 @@
+# Configuration for MyPlugin
+active: true
+default_button_type: wooden_button
+plugin_enabled_worldwide: false
+worlds_configuration:
+  world: selleChevalV1
+#  world2: iron_button
+
