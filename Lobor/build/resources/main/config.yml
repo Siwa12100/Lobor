@@ -1,7 +1,14 @@
-# Configuration for MyPlugin
+# Configuration de Lobor :
+
+# Plugin actif ou non :
 active: false
+
+# Type de bouton par défaut
 default_button_type: selleChevalV1
+
+# Lobor actif sur tous les mondes
 plugin_enabled_worldwide: true
+# Association monde / type de bouton
 worlds_configuration:
   world: selleChevalV1
 
