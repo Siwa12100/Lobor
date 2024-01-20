@@ -24,7 +24,7 @@ En ce qui concerne le fichier de config, démarrez une première fois le serveur
 
 Il ne vous reste qu'à éteindre le serveur, éditer le fichier de config à votre convenance et relancer le serveur. 
 
-Attention, si vous essayiez de modifier le fichier de config alors que la machine n'est pas complètement éteinte, vous risquez d'avoir des soucis et vos modifications ne seront pas prises en compte. 
+Attention, si vous essayez de modifier le fichier de config alors que la machine n'est pas complètement éteinte, vous risquez d'avoir des soucis et vos modifications ne seront pas prises en compte. 
 
 
 ### Contexte & appartenance
