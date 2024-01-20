@@ -24,7 +24,7 @@ public class CommandesDebugManager implements CommandExecutor {
         this.selleManagerv1 = BoutonSelleChevalV1.newBoutonManagerV1();
 
         switch (args[1]) {
-            
+
             case "creerCheval" :
                 this.monture = new MontureCheval(p);
                 break;
