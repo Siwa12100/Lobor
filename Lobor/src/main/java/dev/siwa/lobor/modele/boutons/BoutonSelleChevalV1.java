@@ -36,9 +36,13 @@ public class BoutonSelleChevalV1 implements IBouton {
         if (isBoutonSelleAbsent(joueur)) {
             joueur.getInventory().addItem(getItem(Material.SADDLE, ChatColor.GOLD + BoutonSelleChevalV1.nomBouton));
         }
+
+        System.out.println("On donne une selle cheval V1 a " + joueur.getName());
     }
 
     public void removeBouton(Player joueur) {
+
+        System.out.println("Passage dans le removeBouton pour le joueur " + joueur.getName());
         ItemStack item = getItem(Material.SADDLE, ChatColor.GOLD + BoutonSelleChevalV1.nomBouton);
         ItemStack[] itemsInInventory = joueur.getInventory().getContents();
 
@@ -46,6 +50,8 @@ public class BoutonSelleChevalV1 implements IBouton {
             ItemStack currentItem = itemsInInventory[i];
             if (currentItem != null && currentItem.isSimilar(item)) {
                 joueur.getInventory().setItem(i, null);
+
+                System.out.println("La selle de type cheval V1 a bien ete supprimee au joueur " + joueur.getName());
                 return;
             }
         }

@@ -61,9 +61,9 @@ public class LoborConfig {
 
         System.out.println(" Est actif : " + config.getBoolean("active"));
 
-        instance.LoborActifSurTousLesMondes = config.getBoolean("plugin_enable_worldwide");
+        instance.LoborActifSurTousLesMondes = config.getBoolean("plugin_enabled_worldwide");
 
-        System.out.println("config actif partout : " + config.getBoolean("plugin_enable_worldwide"));
+        System.out.println("config actif partout : " + config.getBoolean("plugin_enabled_worldwide"));
 
         instance.typeDeBoutonParDefaut = recupererTypeBoutonFromString(config.getString("default_button_type"));
 
@@ -133,7 +133,7 @@ public class LoborConfig {
                 " Config de Lobor : \n" +
                 " ----------------- \n" +
                 " - Lobor actif : " + this.isLoborActif() + "\n" +
-                "- Actif sur tous les mondes : " + this.isLoborActifSurTousLesMondes() + "\n" +
+                "- Actif sur tous les mondes : " + LoborConfig.getInstance().isLoborActifSurTousLesMondes() + "\n" +
                 //" - Bouton par défaut : " + this.getTypeDeBoutonParDefaut().toString() + "\n" +
                 " - Mondes pris en charge : " + "\n");
 
