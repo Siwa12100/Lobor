@@ -39,7 +39,6 @@ public class Lobor extends JavaPlugin {
 
         this.loadConfigFile();
         LoborConfig.chargerConfig(this.config);
-        System.out.println(LoborConfig.getInstance());
 
         Objects.requireNonNull(getCommand("lobor")).setExecutor(CommandesManager.newCommandesManager(true, monturesManager));
         Bukkit.getServer().getPluginManager().registerEvents(new EcouteurPrincipal(monturesManager, this.invocateur, lBoutonsManager), this);

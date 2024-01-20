@@ -80,8 +80,6 @@ public class EcouteurJoueurs implements Listener {
         Player player = event.getPlayer();
         World world = player.getWorld();
 
-        System.out.println("Debut du OnPlayerQuit");
-
         if (LoborConfig.getInstance().isLoborActif()) {
 
             if (!LoborConfig.getInstance().isLoborActifSurTousLesMondes()) {
