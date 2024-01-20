@@ -12,6 +12,7 @@ public class CommandesDebugManager implements CommandExecutor {
 
     private MontureCheval monture;
     private BoutonSelleChevalV1 selleManagerv1;
+
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
 
@@ -23,6 +24,7 @@ public class CommandesDebugManager implements CommandExecutor {
         this.selleManagerv1 = BoutonSelleChevalV1.newBoutonManagerV1();
 
         switch (args[1]) {
+            
             case "creerCheval" :
                 this.monture = new MontureCheval(p);
                 break;
