@@ -31,6 +31,6 @@ Dans ce sens, si vous souhaitez faire des retours ou bien échanger avec nous, n
 
 Si vous souhaitez me contacter, n'hésitez pas à m'ajouter sur discord `sioa`, ou bien comme dit précédemment, à passer sur le [discord d'ELendil](https://discord.gg/ugf7KfeZs9) ou bien de son [lab](https://discord.gg/B2NWNd2VUf).
 
-En espérant Lobor vous sera utile et sera convenir à vos besoins !
+En espérant que Lobor vous sera utile et sera convenir à vos besoins !
 
 ***ps** : Le .jar est disponible dans l'Elendil Lab et dans les fichiers de ce dépôt !*
