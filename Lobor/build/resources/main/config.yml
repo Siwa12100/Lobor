@@ -1,7 +1,7 @@
 # Configuration for MyPlugin
-active: true
+active: false
 default_button_type: selleChevalV1
-plugin_enabled_worldwide: false
+plugin_enabled_worldwide: true
 worlds_configuration:
   world: selleChevalV1
 
