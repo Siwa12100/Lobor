@@ -1,15 +1,32 @@
-# Configuration de Lobor :
+# ======================
+# Configuration de Lobor
+# ======================
 
-# Plugin actif ou non :
+# Activation du plugin ou non :
+# -----------------------------
+# --> Choisissez si le plugin fonctionnera ou non (c'est-à-dire fournira
+# aux joueurs des boutons pour montures ou non).
 active: false
 
-# Type de bouton par défaut
+# Lobor actif sur tous les mondes :
+# ---------------------------------
+# --> Si cette option est activée, qu'importe le monde, les joueurs recevront
+# dans leur inventaire le bouton de monture par défaut.
+plugin_enabled_worldwide: true
+
+# Type de bouton par défaut :
+# ---------------------------
+# --> Si Lobor est actif sur tous les mondes, définissez ici le type de monture
+# qui leur sera fourni à leur arrivée dans le monde.
 default_button_type: selleChevalV1
 
-# Lobor actif sur tous les mondes
-plugin_enabled_worldwide: true
-# Association monde / type de bouton
+# A l'heure actuelle, les différents choix de montures sont :
+# - selleChevalV1
+
+# Association monde / type de bouton :
+# ------------------------------------
+# --> Si vous avez choisi de ne pas activer Lobor sur tous les mondes,
+# alors précisez ici sur quels mondes le plugin sera actif, et le type
+# de monture associé à chacun d'eux.
 worlds_configuration:
   world: selleChevalV1
-
-
