@@ -12,6 +12,7 @@ public class InvocateurClassique implements IInvocateur {
 
     @Override
     public void getCheval(Player p) {
+
         if (p != null) {
             boolean verif =  this.manager.creerMontureCheval(p);
             if (verif) {

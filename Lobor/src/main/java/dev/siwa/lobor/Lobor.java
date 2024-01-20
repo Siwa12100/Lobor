@@ -62,9 +62,6 @@ public class Lobor extends JavaPlugin {
         File configFile = new File(getDataFolder(), "config.yml");
 
         if (!configFile.exists()) {
-            getLogger().info("Le fichier de configuration n'existe pas, création depuis les ressources.");
-
-            System.out.println("Attention on passe dans le saveRessource");
             saveResource("config.yml", false);
         }
 

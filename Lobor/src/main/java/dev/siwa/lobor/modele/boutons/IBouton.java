@@ -10,6 +10,5 @@ public interface IBouton {
     void removeBouton(Player joueur);
     void interagirAvecBouton(Player joueur, MonturesManager manager, IInvocateur invocateur);
     boolean isBouton(ItemStack itemCourant);
-
     TypesBouton getTypeBouton();
 }

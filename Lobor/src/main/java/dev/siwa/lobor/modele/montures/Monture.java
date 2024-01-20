@@ -15,13 +15,6 @@ public abstract class Monture {
         this.proprietaire = p;
     }
 
-    public void setProprietaire(Player p) {
-        this.proprietaire = p;
-    }
-    public Player getProprietaire() {
-        return this.proprietaire;
-    }
-
     public abstract void immobiliser();
     public abstract void supprimer();
     public abstract void rendreMobile();
@@ -29,5 +22,13 @@ public abstract class Monture {
 
     public boolean isMobile() {
         return this.mobile;
+    }
+
+    public void setProprietaire(Player p) {
+        this.proprietaire = p;
+    }
+
+    public Player getProprietaire() {
+        return this.proprietaire;
     }
 }

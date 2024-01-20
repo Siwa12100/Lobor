@@ -5,7 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d1a442e6-6c5c-4052-998b-b2187104299f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/resources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/Lobor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/Lobor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/commandes/CommandesManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/commandes/CommandesManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/commandes/debug/CommandesDebugManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/commandes/debug/CommandesDebugManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/config/LoborConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/config/LoborConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/ecouteurs/EcouteurJoueurs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/ecouteurs/EcouteurJoueurs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/ecouteurs/EcouteurPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/ecouteurs/EcouteurPrincipal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/modele/boutons/BoutonSelleChevalV1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/modele/boutons/BoutonSelleChevalV1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/modele/boutons/IBouton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/modele/boutons/IBouton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/modele/boutons/TypesBouton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/modele/boutons/TypesBouton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/modele/invocateurs/InvocateurClassique.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/modele/invocateurs/InvocateurClassique.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/modele/invocateurs/InvocateurTchat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/modele/invocateurs/InvocateurTchat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/modele/montures/Monture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/modele/montures/Monture.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/modele/montures/MontureCheval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/modele/montures/MontureCheval.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/modele/montures/MonturesManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/siwa/lobor/modele/montures/MonturesManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +116,7 @@
       <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
-      <ForceTestExec>false</ForceTestExec>
+      <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
   </component>

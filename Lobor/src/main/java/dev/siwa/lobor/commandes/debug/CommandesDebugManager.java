@@ -18,7 +18,7 @@ public class CommandesDebugManager implements CommandExecutor {
         if (args.length <= 1) {
             return false;
         }
-        //AfficheurDebug.afficherMessage((Player)sender, "Passage dans le debug manager et args.length > 1");
+
         Player p = (Player) sender;
         this.selleManagerv1 = BoutonSelleChevalV1.newBoutonManagerV1();
 

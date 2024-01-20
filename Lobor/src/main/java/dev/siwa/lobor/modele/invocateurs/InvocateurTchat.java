@@ -15,13 +15,17 @@ public class InvocateurTchat extends InvocateurClassique implements IInvocateur,
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
+
         if (!(args.length > 1)) {
             return false;
         }
+
         Player joueur = (Player) sender;
 
         if (args[0].equals("-i")) {
+
             switch(args[1]) {
+
                 case "getCheval" :
                     this.getCheval(joueur);
                     break;
@@ -34,6 +38,7 @@ public class InvocateurTchat extends InvocateurClassique implements IInvocateur,
                     return false;
             }
         }
+
         return true;
     }
 }

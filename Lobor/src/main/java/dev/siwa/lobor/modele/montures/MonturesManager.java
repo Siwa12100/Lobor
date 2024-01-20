@@ -21,24 +21,24 @@ public class MonturesManager {
     }
 
     public boolean creerMontureCheval(Player p) {
+
         if (this.couplesMonturesPlayersExistants.containsKey(p)) {
-            //AfficheurTchat.afficherMessage(p, " vous avez deja une monture.");
             return false;
+
         } else {
             MontureCheval nvMonture = new MontureCheval(p);
             this.couplesMonturesPlayersExistants.put(p, nvMonture);
-            //AfficheurTchat.afficherMessage(p, " monture invoquee !");
         }
+
         return true;
     }
 
     public void supprimerMontureCheval(Player p) {
-        if (!this.couplesMonturesPlayersExistants.containsKey(p)) {
-            //AfficheurTchat.afficherMessage(p, " vous n'avez pas de monture actuellement.");
-        } else {
+
+        if (this.couplesMonturesPlayersExistants.containsKey(p)) {
+
             this.couplesMonturesPlayersExistants.get(p).supprimer();
             this.couplesMonturesPlayersExistants.remove(p);
-            //AfficheurTchat.afficherMessage(p, " votre monture a bien disparu.");
         }
     }
 
@@ -49,17 +49,21 @@ public class MonturesManager {
     }
 
     public boolean possedeCheval(Player p) {
+
         if (this.couplesMonturesPlayersExistants.containsKey(p)) {
             return true;
         }
+
         return false;
     }
 
     public void supprimerToutesMontures() {
-            List<Monture> toutesLesMontures = couplesMonturesPlayersExistants.values().stream().toList();
-            for (Monture m : toutesLesMontures) {
-                m.supprimer();
-                this.couplesMonturesPlayersExistants.remove(m.getProprietaire());
-            }
+
+        List<Monture> toutesLesMontures = couplesMonturesPlayersExistants.values().stream().toList();
+
+        for (Monture m : toutesLesMontures) {
+            m.supprimer();
+            this.couplesMonturesPlayersExistants.remove(m.getProprietaire());
+        }
     }
 }
