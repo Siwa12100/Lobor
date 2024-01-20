@@ -20,6 +20,12 @@ Le plugin est dans sa première version et reste assez jeune. Une seule monture 
 
 Lobor n'ayant encore été que peu testé et éprouvé, il se pourrait que vous puissiez voir des bugs, n'hésitez pas à les faire remonter !
 
+En ce qui concerne le fichier de config, démarrez une première fois le serveur avec le plugin pour le créer. Par défaut le plugin est désactivé, donc ne paniquez pas si rien ne se passe c'est normal.
+
+Il ne vous reste qu'à éteindre le serveur, éditer le fichier de config à votre convenance et relancer le serveur. 
+
+Attention, si vous essayiez de modifier le fichier de config alors que la machine n'est pas complètement éteinte, vous risquez d'avoir des soucis et vos modifications ne seront pas prises en compte. 
+
 
 ### Contexte & appartenance
 
