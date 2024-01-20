@@ -12,7 +12,7 @@ Ils ont ainsi dans leur inventaire un bouton qui invoque une monture lorsqu'il e
 
 * Le fait que le plugin fournisse une monture sur tous les mondes ou non.
 
-* Le type de montures par défaut dans le cas où le plugin est actif sur l'ensemble des mondes.
+* Le type de monture par défaut dans le cas où le plugin est actif sur l'ensemble des mondes.
 
 ### Informations importantes
 
